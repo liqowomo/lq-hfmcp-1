@@ -9,6 +9,18 @@ def main():
     header1("Welcome to the MCP Server")
     # Add more functionality here as needed
 
+    # Start the MCP server
+    print("\nStarting MCP server...")
+    mcp.start_server()
+
+
+
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nServer stopped by user")
+    except Exception as e:
+        print(f"\nError occurred: {e}")
+
