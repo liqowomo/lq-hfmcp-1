@@ -33,7 +33,7 @@ uvSetup() {
     fi
 
     # Setup Directory
-    DEPS="fastapi uvicorn requests rich python-dotenv"
+    DEPS="rich mcp[cli]"
     co1="mkdir -v $name_of_project && cd $name_of_project"
     co2="uv venv"
     co3="uv pip install $DEPS"
