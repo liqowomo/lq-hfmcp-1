@@ -1,3 +1,4 @@
+# Main mcp server file being called in in main.py
 # Rich Prettifier Code
 # ------------------------------------------------------
 import logging
@@ -13,6 +14,7 @@ from rich.style import Style  # For styles colors
 from rich.text import Text  # For text Styles
 from rich.logging import RichHandler
 from rich.traceback import install
+
 
 console = Console()  # Standard code to access console
 install(show_locals=True)
