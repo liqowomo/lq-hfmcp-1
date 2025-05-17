@@ -11,7 +11,7 @@ def main():
 
     # Start the MCP server
     print("\nStarting MCP server...")
-    mcp.start_server()
+    mcp.run()
 
 
 
