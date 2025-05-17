@@ -22,7 +22,7 @@ h1() {
 
 run_mcp_server1() {
     h1 "Running MCP Server 1"
-    co1="mcp dev server.py"
+    co1="mcp dev src/server.py"
 
     echo -e "${GREEN}Running MCP Server 1...${NC}"
     echo -e "${YELLOW}Command: ${NC}${co1}"
