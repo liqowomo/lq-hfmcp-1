@@ -1,7 +1,4 @@
 # lq-hfmcp-1
 
-HFMCPC1
-
-lopi ,,,
-kkk
-kkhh
+1. Testing MCPZ shizz
+2.
