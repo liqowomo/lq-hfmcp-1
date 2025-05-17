@@ -35,15 +35,19 @@ uvSetup() {
     # Setup Directory
     DEPS="rich mcp[cli]"
     co1="mkdir -v $name_of_project && cd $name_of_project"
-    co2="uv venv"
-    co3="uv pip install $DEPS"
-    co4="uv pip list"
+    co2="uv init"
+    co3="uv venv"
+    co4="uv pip install $DEPS"
+    co5="uv pip list"
+    co6="source .venv/bin/activate.fish"
 
     # Commands execution
     eval "$co1"
     eval "$co2"
     eval "$co3"
     eval "$co4"
+    eval "$co5"
+    eval "$co6"
     echo -e "${YELLOW}[?] Execute source .venv/bin/activate.fish ${NC}"
     echo -e "${GREEN}[+] Installation Completed ${NC}"
 }
