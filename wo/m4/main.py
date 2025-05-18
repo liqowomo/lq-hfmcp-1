@@ -11,6 +11,7 @@ def slow_echo(message, history):
 
 demo = gr.ChatInterface(
     slow_echo,
+    title="Slow Booty Dance",
     type="messages",
     flagging_mode="manual",
     flagging_options=["Like", "Spam", "Inappropriate", "Other"],
