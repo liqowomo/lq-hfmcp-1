@@ -2,10 +2,10 @@
 # https://www.gradio.app/playground 
 
 from src.g1 import g1_main # Main gradio function herex
-from src.ver1 import ver1_main # Get Versions
+from src.ver1 import exec_get_versions # Get Versions
 
 def main():
-    ver1_main()
+    exec_get_versions() # Get the versions of python and pip
     g1_main()
 
 
