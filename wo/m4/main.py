@@ -1,22 +1,25 @@
 # This demos is copied from 
 # https://www.gradio.app/playground 
 
-import time
-import gradio as gr
+from src.g1 import slow_echo, create_chat_interface
 
-def slow_echo(message, history):
-    for i in range(len(message)):
-        time.sleep(0.05)
-        yield "You typed: " + message[: i + 1]
+def main():
+    g1_main()
 
-demo = gr.ChatInterface(
-    slow_echo,
-    title="Slow Booty Dance",
-    type="messages",
-    flagging_mode="manual",
-    flagging_options=["Like", "Spam", "Inappropriate", "Other"],
-    save_history=True,
-)
+
+
+def g1_main():
+    # Create with default parameters
+    demo = create_chat_interface(slow_echo)
+    
+    # Alternative with custom parameters:
+    # demo = create_chat_interface(
+    #     slow_echo,
+    #     title="Custom Title",
+    #     flagging_options=["Good", "Bad"]
+    # )
+    
+    demo.launch()
 
 if __name__ == "__main__":
-    demo.launch()
+    main()
