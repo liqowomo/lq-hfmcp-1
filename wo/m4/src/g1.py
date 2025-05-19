@@ -26,3 +26,17 @@ def create_chat_interface(echo_function, **kwargs):
     defaults.update(kwargs)
     
     return gr.ChatInterface(echo_function, **defaults)
+
+
+def g1_main():
+    # Create with default parameters
+    demo = create_chat_interface(slow_echo)
+    
+    # Alternative with custom parameters:
+    # demo = create_chat_interface(
+    #     slow_echo,
+    #     title="Custom Title",
+    #     flagging_options=["Good", "Bad"]
+    # )
+    
+    demo.launch()
