@@ -44,4 +44,4 @@ pnpm_crn() {
 }
 
 # Execution
-menu_choice
+pnpm_crn
