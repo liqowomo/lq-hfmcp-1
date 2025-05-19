@@ -6,7 +6,7 @@ from src.ver1 import exec_get_versions # Get Versions
 
 def main():
     exec_get_versions() # Get the versions of python and pip
-    g1_main()
+    # g1_main()
 
 
 if __name__ == "__main__":

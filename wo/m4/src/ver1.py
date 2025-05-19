@@ -18,5 +18,5 @@ def get_versions():
 def exec_get_versions():
     """Executes and prints version information"""
     python_version, pip_version = get_versions()
-    print(f"Python version: {python_version}")
-    print(f"Pip version: {pip_version}")
+    rprint(f"Python version: {python_version}")
+    rprint(f"Pip version: {pip_version}")
