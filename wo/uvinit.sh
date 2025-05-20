@@ -55,7 +55,7 @@ uvsetup_1() {
 
 # UvSetup with gradio[mcp]
 uvsetup_2() {
-    hea1 "UV Setup with Gradio"
+    hea1 "UV Setup with Gradio[mcp]"
 
     # Get Name of project
     echo -e "Enter the name of the project: "
