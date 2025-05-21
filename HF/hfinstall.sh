@@ -30,5 +30,13 @@ hf_in() {
     eval "$co1"
 }
 
+# Repo Creation Commands
+hf_repo() {
+    h1 "HF Repo Creation"
+    co2='huggingface-cli repo create --type model --organization <org_name> <repo_name>'
+    echo -e "--- Executing ${co2} ---"
+    eval "$co2"
+}
+
 # Execution
 hf_in
