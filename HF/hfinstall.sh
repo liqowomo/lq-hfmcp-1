@@ -38,5 +38,13 @@ hf_repo() {
     eval "$co2"
 }
 
+# HF Space Creation Commands
+hf_space() {
+    h1 "HF Space Creation"
+    co3='huggingface-cli space create myspace1'
+    echo -e "--- Executing ${co3} ---"
+    eval "$co3"
+}
+
 # Execution
 hf_repo
