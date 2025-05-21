@@ -41,10 +41,11 @@ hf_repo() {
 # HF Space Creation Commands
 hf_space() {
     h1 "HF Space Creation"
-    co3='huggingface-cli space create myspace1'
+    co1='huggingface-cli repo create --type space_sdk docker -y myspace1'
     echo -e "--- Executing ${co3} ---"
-    eval "$co3"
+    eval "$co1"
 }
 
 # Execution
-hf_repo
+# hf_repo
+hf_space
