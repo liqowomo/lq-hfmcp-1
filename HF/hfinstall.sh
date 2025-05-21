@@ -25,9 +25,10 @@ he1() {
 # Installs the HF CLI
 hf_in() {
     h1 "HF Pip Install"
-    co1="pip install -U "huggingface_hub[cli]\"
+    co1='pip install -U "huggingface_hub[cli]"'
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
 }
 
 # Execution
+hf_in
