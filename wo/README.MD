@@ -7,5 +7,6 @@
 
 # Dirz
 
-| `Dirz` | `What` |
-| :----: | :----: |
+|    `Dirz`     |                                           `What`                                            |
+| :-----------: | :-----------------------------------------------------------------------------------------: |
+| [`g1`](./g1/) | Actual example gradio server being written, this also works but unable to call it with curl |
