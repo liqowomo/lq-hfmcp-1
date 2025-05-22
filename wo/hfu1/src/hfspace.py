@@ -16,6 +16,7 @@ def hf_space_ops():
     Main function for Hugging Face repository operations.
     """
     hf_create_space()
+    hf_upload_dirz()
     
 
 
@@ -84,7 +85,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "TEMP/"  # Path to your local folder
+    local_folder_path = "../hfu1/"  # Path to your local folder
     repo_id = "Liqo/SpaceFromPy2"  # Your Hugging Face repo
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
