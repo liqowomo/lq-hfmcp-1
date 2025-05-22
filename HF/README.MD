@@ -14,4 +14,6 @@ https://huggingface.co/docs/huggingface_hub/en/guides/cli
 
 ## API
 
-`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`
+hf_GNQVavF
+VWeQunNVNWBm
+XoLXicDKItLjrFP
