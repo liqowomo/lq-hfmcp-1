@@ -37,7 +37,6 @@ def hf_create_repo():
     repo_url = create_repo(
         repo_id="Liqo/but1",
         repo_type="space",
-        space_sdk="model",
         space_secrets=HFS
     )
 
