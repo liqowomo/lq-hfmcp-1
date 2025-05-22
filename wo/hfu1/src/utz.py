@@ -40,6 +40,18 @@ def header1(text):
     # Print the Panel
     console.print(panel)
 
+def header2(text):
+    panel = Panel.fit(
+        f"""[green_yellow]{text}[/green_yellow]""",
+        title="Making Repo",
+        subtitle="Made",
+        style="Italic",
+        border_style="magenta",
+    )
+    # Print the Panel
+    console.print(panel)
+
+
 
 def l_debug(text):
     log.debug(f"[green]{text}[/green]")

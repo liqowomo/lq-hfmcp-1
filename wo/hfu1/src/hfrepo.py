@@ -1,6 +1,6 @@
 # This python file is for creating and uploading files to huggingface
 
-from src.utz import header1, rprint
+from src.utz import header1, header2
 import os
 from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
