@@ -44,7 +44,8 @@ def hf_create_repo():
     # Create the repository
     repo_url = create_repo(
         repo_id=repo_name, 
-        repo_type="model", token=hf_token
+        repo_type="model", 
+        token=hf_token
     )
 
     rprint("Creating" + repo_name)
