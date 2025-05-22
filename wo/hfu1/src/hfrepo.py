@@ -9,12 +9,16 @@ from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 load_dotenv(".env")
 hf_token = os.getenv("HFTOKEN")
 
+HFS = [
+        {"key": "HFTOKEN", "value": hf_token}
+    ]
+
 # Main function that will call the sub functions
 def hf_repo_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    header1("BootySmell")
+    hf_create_repo()
 
 # --- Function for creating a repo --- 
 
@@ -37,10 +41,12 @@ def hf_create_repo():
     repo_url = create_repo(
         repo_id="Liqo/but1",
         repo_type="space",
-        space_secrets=HFS
+        space_secrets=HFS,
+        token=hf_token 
     )
 
-    repo_url
+    rprint("Creating" + repo_id)
+    return repo_url
 
 
 
