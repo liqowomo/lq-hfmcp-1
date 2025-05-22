@@ -69,7 +69,7 @@ hf_space_upload() {
 
     co1="huggingface-cli upload \
     --repo-type=space ${SPACE} \
-    --exclude ${EXCLUDE} \
+    --exclude=${EXCLUDE} \
     ."
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
