@@ -5,6 +5,9 @@ import os
 from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
+# Loading the env file 
+load_dotenv(env_file)
+
 # Main function that will call the sub functions
 def hf_repo_ops():
     """
@@ -38,7 +41,7 @@ def hf_create_repo():
 def create_huggingface_repo(repo_id, repo_type="space", private=False, space_sdk="gradio", space_hardware=SpaceHardware.CPU_SMALL, space_storage=SpaceStorage.SMALL, space_sleep_time=None, env_file=".env"):
     
     # Load secrets from .env file
-    load_dotenv(env_file)
+    
 
     # Extract secrets from environment variables
     space_secrets = [{"key": key, "value": value} for key, value in os.environ.items() if key.startswith("SECRET_")]
