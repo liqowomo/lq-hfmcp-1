@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
 # Loading the env file
-load_dotenv(".env")
+load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
 
