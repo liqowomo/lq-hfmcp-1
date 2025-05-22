@@ -3,7 +3,7 @@
 from src.utz import header1, header2
 import os
 from dotenv import load_dotenv
-from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_folder
+from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_folder, delete_repo
 
 # Loading the env file
 load_dotenv("src/.env")
@@ -18,8 +18,9 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_create_space()
-    hf_upload_dirz()
+    # hf_create_space()
+    # hf_upload_dirz()
+    hf_delete_spaces()
     
 
 
@@ -103,3 +104,44 @@ def hf_upload_dirz():
 
     print(f"✅ Uploaded folder to: {upload_result.commit_url}")
     return upload_result
+
+
+# --- Deleteing Spaces --- 
+
+def hf_delete_spaces():
+    header1("Deleting Multiple Hugging Face Repositories")
+
+    """
+    Delete multiple Hugging Face repositories.
+
+    Parameters:
+    - repo_ids (list[str]): List of repos in "namespace/repo" format
+    - token (str): Hugging Face token
+    - repo_type (str): "model", "dataset", or "space"
+    - missing_ok (bool): Skip error if repo is missing
+
+    Returns:
+    - None
+    """
+
+    # Config
+    repo_ids = [
+        "Liqo/smpy4",
+        "Liqo/SpaceFromPy2",
+        "Liqo/SpaceFromPy"
+    ]
+    repo_type = "space"
+    token = hf_token
+    missing_ok = True
+
+    for repo_id in repo_ids:
+        try:
+            delete_repo(
+                repo_id=repo_id,
+                token=token,
+                repo_type=repo_type,
+                missing_ok=missing_ok
+            )
+            print(f"✅ Deleted: {repo_id}")
+        except Exception as e:
+            print(f"❌ Failed to delete {repo_id}: {e}")
