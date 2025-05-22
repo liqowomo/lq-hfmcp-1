@@ -53,7 +53,7 @@ def hf_create_repo():
 
 # --- Uploading files to repo ---
 
-def hf_upload_files():
+def hf_upload_dirz():
     """
     Upload a file to a Hugging Face repository.
 
