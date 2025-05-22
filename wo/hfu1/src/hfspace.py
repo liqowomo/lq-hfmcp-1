@@ -15,14 +15,15 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_create_repo()
+    hf_create_space()
     
 
 
 # --- Function for creating a repo ---
 
+# Note this function is the same as used in hfrepo. But added with some 
 
-def hf_create_repo():
+def hf_create_space():
     header1("Creating a Hugging Face Repository - Model")
     """
     Create a Hugging Face repository with secrets from an .env file.
