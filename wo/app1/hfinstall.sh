@@ -66,11 +66,11 @@ hf_space_upload() {
     h1 "HF Space Upload"
     SPACE="gmptut1"
 
-    co1="huggingface-cli repo upload --path-in-repo=app.py ${name_of_space}"
+    co1="huggingface-cli upload --repo-type=space ${SPACE} ."
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
 }
 
 # Execution
 # hf_repo
-hf_space
+hf_space_upload
