@@ -28,7 +28,7 @@ demo = gr.Interface(
     inputs=gr.Textbox(placeholder="Enter text to analyze..."),
     outputs=gr.JSON(),
     title="Text Sentiment Panty",
-    description="Analyze the sentiment of text using TextBlob"
+    description="Analyze the pantysmell of text using TextBlob"
 )
 
 # Launch the interface and MCP server
