@@ -7,7 +7,7 @@ from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
 # Loading the env file 
 load_dotenv(".env")
-HFS="HFTOKEN"
+hf_token = os.getenv("HFTOKEN")
 
 # Main function that will call the sub functions
 def hf_repo_ops():
