@@ -44,7 +44,7 @@ def hf_create_repo():
     # Create the repository
     repo_url = create_repo(
         repo_id=repo_name,
-        repo_type="space",
+        repo_type="model",
         space_secrets=HFS,
         token=hf_token 
     )
