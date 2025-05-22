@@ -6,7 +6,8 @@ from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
 # Loading the env file 
-load_dotenv(env_file)
+load_dotenv(".env")
+HFS="HFTOKEN"
 
 # Main function that will call the sub functions
 def hf_repo_ops():
@@ -32,20 +33,6 @@ def hf_create_repo():
     - env_file (str): Path to the .env file containing secrets. Default is ".env".
     """
 
-
-
-
-
-
-
-def create_huggingface_repo(repo_id, repo_type="space", private=False, space_sdk="gradio", space_hardware=SpaceHardware.CPU_SMALL, space_storage=SpaceStorage.SMALL, space_sleep_time=None, env_file=".env"):
-    
-    # Load secrets from .env file
-    
-
-    # Extract secrets from environment variables
-    space_secrets = [{"key": key, "value": value} for key, value in os.environ.items() if key.startswith("SECRET_")]
-
     # Create the repository
     repo_url = create_repo(
         repo_id=repo_id,
@@ -58,8 +45,7 @@ def create_huggingface_repo(repo_id, repo_type="space", private=False, space_sdk
         space_secrets=space_secrets
     )
 
-    return repo_url
+    repo_url
 
-# Example usage
-repo_url = create_huggingface_repo(repo_id="your-namespace/your-repo-name")
-print(f"Repository created at: {repo_url}")
+
+
