@@ -69,7 +69,7 @@ hf_space_upload() {
 
     co1="huggingface-cli upload \
     --repo-type=space ${SPACE} \
-    app.py "
+    --include="app.py" "requirements.txt" \
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
 }
