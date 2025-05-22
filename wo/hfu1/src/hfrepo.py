@@ -3,7 +3,7 @@
 from src.utz import header1, header2
 import os
 from dotenv import load_dotenv
-from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
+from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_file
 
 # Loading the env file
 load_dotenv("src/.env")
@@ -42,14 +42,14 @@ def hf_create_repo():
     repo_name = "Liqo/MakefromPy2"
 
     # Create the repository
-    repo_url = create_repo(
+    make_repo_model = create_repo(
         repo_id=repo_name, 
         repo_type="model", 
         token=hf_token
     )
 
     header2(f"{repo_name}")
-    return repo_url
+    return make_repo_model
 
 # --- Uploading files to repo ---
 
@@ -70,5 +70,16 @@ def hf_upload_files():
     - CommitInfo or Future: The result of the upload
     """
 
-    
+    upload_filez = upload_file(
+        path_or_fileobj="src/utz.py",
+        path_in_repo="utz.py",
+        repo_id="Liqo/MakefromPy2",
+        token=hf_token,
+        repo_type="model",
+        commit_message="Added utz.py",
+        commit_description="Added utz.py",
+        create_pr=False
+    )
+    header2(f"Uploading file to {upload_filez}")
+    return upload_filez
 
