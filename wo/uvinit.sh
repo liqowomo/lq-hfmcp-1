@@ -37,7 +37,7 @@ uvsetup_1() {
     CO1="uv init $name_of_project"
     CO2="cd $name_of_project"
 
-    DEPS="rich mcp[cli] gradio"
+    DEPS="rich huggingface_hub"
     CO3="uv add  $DEPS"
     CO4="uv tree"
 
@@ -150,4 +150,4 @@ uvsetup_4() {
 }
 
 # Execution
-uvsetup_3
+uvsetup_1
