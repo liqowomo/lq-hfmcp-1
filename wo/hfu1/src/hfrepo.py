@@ -39,7 +39,7 @@ def hf_create_repo():
     """
 
     # Name of the repo
-    repo_name = "Liqo/but1"
+    repo_name = "Liqo/MakefromPy1"
 
     # Create the repository
     repo_url = create_repo(
