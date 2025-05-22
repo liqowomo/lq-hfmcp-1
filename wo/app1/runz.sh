@@ -22,7 +22,7 @@ h1() {
 
 ru_ma() {
     h1 "Running MCP Server 1"
-    co1="uv run panty.py"
+    co1="uv run app.py"
 
     echo -e "${GREEN}Running Gradio MCP Server 1...${NC}"
     echo -e "${YELLOW}Command: ${NC}${co1}"
