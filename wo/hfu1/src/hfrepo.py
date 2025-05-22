@@ -15,7 +15,8 @@ def hf_repo_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_create_repo()
+    # hf_create_repo()
+    hf_upload_dirz()
 
 
 # --- Function for creating a repo ---
@@ -54,6 +55,7 @@ def hf_create_repo():
 # --- Uploading files to repo ---
 
 def hf_upload_dirz():
+    header1("Uploading a Folder to Hugging Face Repository")
     """
     Upload a folder to a Hugging Face repository.
 
@@ -79,7 +81,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "src/"  # Path to your local folder
+    local_folder_path = "TEMP/"  # Path to your local folder
     repo_id = "Liqo/MakefromPy2"  # Your Hugging Face repo
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
