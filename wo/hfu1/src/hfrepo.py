@@ -22,8 +22,8 @@ def hf_repo_ops():
     Main function for Hugging Face repository operations.
     """
     # hf_create_repo()
-    hf_upload_dirz()
-
+    # hf_upload_dirz()
+    hf_delete_repos()
 
 # --- Function for creating a repo ---
 
@@ -108,7 +108,7 @@ def hf_upload_dirz():
 # --- Deleteing Spaces ---
 
 
-def hf_delete_spaces():
+def hf_delete_repos():
     header1("Deleting Multiple Hugging Face Repositories")
 
     """
@@ -125,8 +125,8 @@ def hf_delete_spaces():
     """
 
     # Config
-    repo_ids = ["Liqo/smpy4", "Liqo/SpaceFromPy2", "Liqo/SpaceFromPy"]
-    repo_type = "space"
+    repo_ids = ["Liqo/MakefromPy1", "Liqo/but1", "Liqo/buty1"]
+    repo_type = "model"
     token = hf_token
     missing_ok = True
 

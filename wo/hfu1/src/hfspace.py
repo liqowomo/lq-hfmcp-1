@@ -3,14 +3,20 @@
 from src.utz import header1, header2
 import os
 from dotenv import load_dotenv
-from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_folder, delete_repo
+from huggingface_hub import (
+    create_repo,
+    SpaceHardware,
+    SpaceStorage,
+    upload_folder,
+    delete_repo,
+)
 
 # Loading the env file
 load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
-# Main Repo ID here 
-REPO_ID="Liqo/smpnor1"
+# Main Repo ID here
+REPO_ID = "Liqo/smpnor1"
 
 
 # Main function that will call the sub functions
@@ -21,12 +27,12 @@ def hf_space_ops():
     # hf_create_space()
     # hf_upload_dirz()
     hf_delete_spaces()
-    
 
 
 # --- Function for creating a repo ---
 
-# Note this function is the same as used in hfrepo. But added with some 
+# Note this function is the same as used in hfrepo. But added with some
+
 
 def hf_create_space():
     header1("Creating a Hugging Face Repository - Model")
@@ -47,16 +53,17 @@ def hf_create_space():
     # Create the repository
     make_repo_model = create_repo(
         token=hf_token,
-        repo_id=REPO_ID, 
+        repo_id=REPO_ID,
         repo_type="space",
-        space_sdk="gradio", 
+        space_sdk="gradio",
     )
 
     header2(f"{REPO_ID}")
     return make_repo_model
 
 
-#--- Uploaading files to space --- 
+# --- Uploaading files to space ---
+
 
 def hf_upload_dirz():
     header1("Uploading a Folder to Hugging Face Repository")
@@ -87,7 +94,6 @@ def hf_upload_dirz():
     # Folder to upload
     local_folder_path = "../app1/"  # Path to your local folder
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
-    
 
     # Upload the folder
     upload_result = upload_folder(
@@ -95,18 +101,26 @@ def hf_upload_dirz():
         path_in_repo=path_in_repo,
         repo_id=REPO_ID,
         token=hf_token,
-        ignore_patterns=[".venv", ".venv/*", "__pycache__", "*.pyc",".env", ".env/*"],  # Ignore these patterns
+        ignore_patterns=[
+            ".venv",
+            ".venv/*",
+            "__pycache__",
+            "*.pyc",
+            ".env",
+            ".env/*",
+        ],  # Ignore these patterns
         repo_type="space",  # Change to "dataset" or "space" if needed
         commit_message="SmellPantySpace",
         commit_description="SpaceUploadPantyAddiuct",
-        create_pr=False  # Set to True if you want to create a PR instead
+        create_pr=False,  # Set to True if you want to create a PR instead
     )
 
     print(f"✅ Uploaded folder to: {upload_result.commit_url}")
     return upload_result
 
 
-# --- Deleteing Spaces --- 
+# --- Deleteing Spaces ---
+
 
 def hf_delete_spaces():
     header1("Deleting Multiple Hugging Face Repositories")
@@ -127,8 +141,6 @@ def hf_delete_spaces():
     # Config
     repo_ids = [
         "Liqo/smpy4",
-        "Liqo/SpaceFromPy2",
-        "Liqo/SpaceFromPy"
     ]
     repo_type = "space"
     token = hf_token
@@ -137,10 +149,7 @@ def hf_delete_spaces():
     for repo_id in repo_ids:
         try:
             delete_repo(
-                repo_id=repo_id,
-                token=token,
-                repo_type=repo_type,
-                missing_ok=missing_ok
+                repo_id=repo_id, token=token, repo_type=repo_type, missing_ok=missing_ok
             )
             print(f"✅ Deleted: {repo_id}")
         except Exception as e:
