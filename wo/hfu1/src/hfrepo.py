@@ -3,7 +3,7 @@
 from src.utz import header1, header2
 import os
 from dotenv import load_dotenv
-from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_file
+from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_folder
 
 # Loading the env file
 load_dotenv("src/.env")
@@ -55,35 +55,45 @@ def hf_create_repo():
 
 def hf_upload_dirz():
     """
-    Upload a file to a Hugging Face repository.
+    Upload a folder to a Hugging Face repository.
 
-    Parameters:
-    - local_path (str): Path to local file to upload
-    - remote_path (str): Path inside the repo (e.g., "folder/filename.txt")
-    - repo_id (str): Repo name in "namespace/repo" format
-    - repo_type (str): One of "model", "dataset", or "space"
-    - commit_message (str): Commit summary
-    - commit_description (str): Optional full commit description
-    - create_pr (bool): Whether to open a Pull Request (default: False)
+    Parameters Reference for upload_folder:
+    ---------------------------------------
+    - repo_id (str): The repository to upload to (e.g., "username/my-model")
+    - folder_path (str | Path): Path to the local folder you want to upload
+    - path_in_repo (str, optional): Target directory in the repo (default: root)
+    - token (str | bool | None): Hugging Face token (None uses default local auth)
+    - repo_type (str, optional): "model", "dataset", or "space" (default: "model")
+    - revision (str, optional): Git branch or commit SHA (default: "main")
+    - commit_message (str, optional): Short commit summary/title
+    - commit_description (str, optional): Longer commit body/description
+    - create_pr (bool, optional): If True, opens a pull request instead of committing directly
+    - parent_commit (str, optional): Expected parent commit SHA (to prevent race conditions)
+    - allow_patterns (list[str] or str, optional): Only upload files matching these glob patterns
+    - ignore_patterns (list[str] or str, optional): Skip files matching these glob patterns
+    - delete_patterns (list[str] or str, optional): Remove remote files matching these patterns
+    - run_as_future (bool, optional): If True, runs in background and returns Future
 
     Returns:
-    - CommitInfo or Future: The result of the upload
+        CommitInfo or Future: The result of the upload.
     """
 
-    # File Details
-    PATH
+    # Folder to upload
+    local_folder_path = "src/"  # Path to your local folder
+    repo_id = "Liqo/MakefromPy2"  # Your Hugging Face repo
+    path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
-
-    upload_filez = upload_file(
-        path_or_fileobj="src/utz.py",
-        path_in_repo="utz.py",
-        repo_id="Liqo/MakefromPy2",
+    # Upload the folder
+    upload_result = upload_folder(
+        folder_path=local_folder_path,
+        path_in_repo=path_in_repo,
+        repo_id=repo_id,
         token=hf_token,
-        repo_type="model",
+        repo_type="model",  # Change to "dataset" or "space" if needed
         commit_message="Smell Panty",
         commit_description="bootySmelling Now",
-        create_pr=False
+        create_pr=False  # Set to True if you want to create a PR instead
     )
-    header2(f"Uploading file to {upload_filez}")
-    return upload_filez
 
+    print(f"✅ Uploaded folder to: {upload_result.commit_url}")
+    return upload_result
