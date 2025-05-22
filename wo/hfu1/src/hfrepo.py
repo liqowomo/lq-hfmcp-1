@@ -50,3 +50,6 @@ def hf_create_repo():
 
     header2(f"{repo_name}")
     return repo_url
+
+# --- Uploading files to repo ---
+
