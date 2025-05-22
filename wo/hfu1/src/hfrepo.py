@@ -1,6 +1,9 @@
 # This python file is for creating and uploading files to huggingface
 
 from src.utz import header1
+import os
+from dotenv import load_dotenv
+from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
 # Main function that will call the sub functions
 def hf_repo_ops():
@@ -12,4 +15,48 @@ def hf_repo_ops():
 # --- Function for creating a repo --- 
 
 def hf_create_repo():
+    """
+    Create a Hugging Face repository with secrets from an .env file.
+
+    Parameters:
+    - repo_id (str): A namespace (user or an organization) and a repo name separated by a /.
+    - repo_type (str): Type of the repo ("model", "dataset", "space"). Default is "space".
+    - private (bool): Whether to make the repo private. Default is False.
+    - space_sdk (str): Choice of SDK to use if repo_type is "space". Default is "gradio".
+    - space_hardware (SpaceHardware): Choice of hardware if repo_type is "space". Default is SpaceHardware.CPU_SMALL.
+    - space_storage (SpaceStorage): Choice of persistent storage tier. Default is SpaceStorage.SMALL.
+    - space_sleep_time (int): Number of seconds of inactivity to wait before a Space is put to sleep.
+    - env_file (str): Path to the .env file containing secrets. Default is ".env".
+    """
+
+
+
+
+
+
+
+def create_huggingface_repo(repo_id, repo_type="space", private=False, space_sdk="gradio", space_hardware=SpaceHardware.CPU_SMALL, space_storage=SpaceStorage.SMALL, space_sleep_time=None, env_file=".env"):
     
+    # Load secrets from .env file
+    load_dotenv(env_file)
+
+    # Extract secrets from environment variables
+    space_secrets = [{"key": key, "value": value} for key, value in os.environ.items() if key.startswith("SECRET_")]
+
+    # Create the repository
+    repo_url = create_repo(
+        repo_id=repo_id,
+        repo_type=repo_type,
+        private=private,
+        space_sdk=space_sdk,
+        space_hardware=space_hardware,
+        space_storage=space_storage,
+        space_sleep_time=space_sleep_time,
+        space_secrets=space_secrets
+    )
+
+    return repo_url
+
+# Example usage
+repo_url = create_huggingface_repo(repo_id="your-namespace/your-repo-name")
+print(f"Repository created at: {repo_url}")
