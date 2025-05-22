@@ -35,7 +35,7 @@ def hf_create_repo():
 
     # Create the repository
     repo_url = create_repo(
-        repo_id=repo_id,
+        repo_id=Liqo/but1,
         repo_type=repo_type,
         private=private,
         space_sdk=space_sdk,
