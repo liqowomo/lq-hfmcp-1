@@ -5,13 +5,10 @@ import os
 from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
 
-# Loading the env file 
+# Loading the env file
 load_dotenv(".env")
 hf_token = os.getenv("HFTOKEN")
 
-HFS = [
-        {"key": "HFTOKEN", "value": hf_token}
-    ]
 
 # Main function that will call the sub functions
 def hf_repo_ops():
@@ -20,7 +17,9 @@ def hf_repo_ops():
     """
     hf_create_repo()
 
-# --- Function for creating a repo --- 
+
+# --- Function for creating a repo ---
+
 
 def hf_create_repo():
     header1("Creating a Hugging Face Repository - Model")
@@ -28,6 +27,7 @@ def hf_create_repo():
     Create a Hugging Face repository with secrets from an .env file.
 
     Parameters:
+    - token (str): Hugging Face token for authentication. 
     - repo_id (str): A namespace (user or an organization) and a repo name separated by a /.
     - repo_type (str): Type of the repo ("model", "dataset", "space"). Default is "space".
     - private (bool): Whether to make the repo private. Default is False.
@@ -38,19 +38,14 @@ def hf_create_repo():
     - env_file (str): Path to the .env file containing secrets. Default is ".env".
     """
 
-    # Name of the repo 
+    # Name of the repo
     repo_name = "Liqo/but1"
 
     # Create the repository
     repo_url = create_repo(
-        repo_id=repo_name,
-        repo_type="model",
-        space_secrets=HFS,
-        token=hf_token 
+        repo_id=repo_name, 
+        repo_type="model", token=hf_token
     )
 
     rprint("Creating" + repo_name)
     return repo_url
-
-
-
