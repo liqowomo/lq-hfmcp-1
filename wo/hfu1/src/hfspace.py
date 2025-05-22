@@ -9,6 +9,9 @@ from huggingface_hub import create_repo, SpaceHardware, SpaceStorage, upload_fol
 load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
+# Main Repo ID here 
+REPO_ID="Liqo/smpnor1"
+
 
 # Main function that will call the sub functions
 def hf_space_ops():
@@ -40,19 +43,15 @@ def hf_create_space():
     - space_sleep_time (int): Number of seconds of inactivity to wait before a Space is put to sleep.
     - env_file (str): Path to the .env file containing secrets. Default is ".env".
     """
-
-    # Name of the repo
-    repo_name = "Liqo/SpaceFromPy2"
-
     # Create the repository
     make_repo_model = create_repo(
         token=hf_token,
-        repo_id=repo_name, 
-        repo_type="space", 
-        space_sdk="gradio",
+        repo_id=REPO_ID, 
+        repo_type="space",
+        space_sdk="gradio", 
     )
 
-    header2(f"{repo_name}")
+    header2(f"{REPO_ID}")
     return make_repo_model
 
 
@@ -85,19 +84,20 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../hfu1/"  # Path to your local folder
-    repo_id = "Liqo/SpaceFromPy2"  # Your Hugging Face repo
+    local_folder_path = "../app1/"  # Path to your local folder
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
+    
 
     # Upload the folder
     upload_result = upload_folder(
         folder_path=local_folder_path,
         path_in_repo=path_in_repo,
-        repo_id=repo_id,
+        repo_id=REPO_ID,
         token=hf_token,
-        repo_type="model",  # Change to "dataset" or "space" if needed
-        commit_message="Smell Panty",
-        commit_description="bootySmelling Now",
+        ignore_patterns=[".venv", ".venv/*", "__pycache__", "*.pyc",".env", ".env/*"],  # Ignore these patterns
+        repo_type="space",  # Change to "dataset" or "space" if needed
+        commit_message="SmellPantySpace",
+        commit_description="SpaceUploadPantyAddiuct",
         create_pr=False  # Set to True if you want to create a PR instead
     )
 
