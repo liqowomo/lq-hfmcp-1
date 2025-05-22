@@ -1,4 +1,4 @@
-# Source of this code - 
+# Source of this code - https://huggingface.co/learn/mcp-course/unit2/gradio-server
 
 import gradio as gr
 from textblob import TextBlob
@@ -27,7 +27,7 @@ demo = gr.Interface(
     fn=sentiment_analysis,
     inputs=gr.Textbox(placeholder="Enter text to analyze..."),
     outputs=gr.JSON(),
-    title="Text Sentiment Analysis",
+    title="Text Sentiment Panty",
     description="Analyze the sentiment of text using TextBlob"
 )
 
