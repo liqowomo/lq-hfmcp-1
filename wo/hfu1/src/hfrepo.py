@@ -1,6 +1,6 @@
 # This python file is for creating and uploading files to huggingface
 
-from src.utz import header1
+from src.utz import header1, rprint
 import os
 from dotenv import load_dotenv
 from huggingface_hub import create_repo, SpaceHardware, SpaceStorage
@@ -23,6 +23,7 @@ def hf_repo_ops():
 # --- Function for creating a repo --- 
 
 def hf_create_repo():
+    header1("Creating a Hugging Face Repository - Model")
     """
     Create a Hugging Face repository with secrets from an .env file.
 
@@ -37,15 +38,18 @@ def hf_create_repo():
     - env_file (str): Path to the .env file containing secrets. Default is ".env".
     """
 
+    # Name of the repo 
+    repo_name = "Liqo/but1"
+
     # Create the repository
     repo_url = create_repo(
-        repo_id="Liqo/but1",
+        repo_id=repo_name,
         repo_type="space",
         space_secrets=HFS,
         token=hf_token 
     )
 
-    rprint("Creating" + repo_id)
+    rprint("Creating" + repo_name)
     return repo_url
 
 
