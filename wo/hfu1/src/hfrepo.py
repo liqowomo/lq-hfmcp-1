@@ -53,3 +53,22 @@ def hf_create_repo():
 
 # --- Uploading files to repo ---
 
+def hf_upload_files():
+    """
+    Upload a file to a Hugging Face repository.
+
+    Parameters:
+    - local_path (str): Path to local file to upload
+    - remote_path (str): Path inside the repo (e.g., "folder/filename.txt")
+    - repo_id (str): Repo name in "namespace/repo" format
+    - repo_type (str): One of "model", "dataset", or "space"
+    - commit_message (str): Commit summary
+    - commit_description (str): Optional full commit description
+    - create_pr (bool): Whether to open a Pull Request (default: False)
+
+    Returns:
+    - CommitInfo or Future: The result of the upload
+    """
+
+    
+
