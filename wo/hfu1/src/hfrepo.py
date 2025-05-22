@@ -70,14 +70,18 @@ def hf_upload_files():
     - CommitInfo or Future: The result of the upload
     """
 
+    # File Details
+    PATH
+
+
     upload_filez = upload_file(
         path_or_fileobj="src/utz.py",
         path_in_repo="utz.py",
         repo_id="Liqo/MakefromPy2",
         token=hf_token,
         repo_type="model",
-        commit_message="Added utz.py",
-        commit_description="Added utz.py",
+        commit_message="Smell Panty",
+        commit_description="bootySmelling Now",
         create_pr=False
     )
     header2(f"Uploading file to {upload_filez}")
