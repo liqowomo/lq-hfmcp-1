@@ -14,7 +14,7 @@ export NC='\033[0m' # No Color
 
 # Commands
 
-he1() {
+h1() {
     echo -e "${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${NC}"
     echo -e "${PURPLE}$1${NC}"
     echo -e "${CYAN}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~${NC}"
@@ -33,7 +33,15 @@ hf_in() {
 # Repo Creation Commands
 hf_repo() {
     h1 "HF Repo Creation"
-    co2='huggingface-cli repo create myrepo1'
+
+    # Enter name of Project
+    echo -e "Enter the name of the project: "
+    read name_of_project
+    if [ -z "$name_of_project" ]; then
+        echo -e "${RED}BASTARD ! Project name cannot be empty${NC}"
+        exit 1
+    fi
+    co2="huggingface-cli repo create ${name_of_project}"
     echo -e "--- Executing ${co2} ---"
     eval "$co2"
 }
@@ -41,7 +49,14 @@ hf_repo() {
 # HF Space Creation Commands
 hf_space() {
     h1 "HF Space Creation"
-    co1='huggingface-cli repo create myspace1 --type=space --space_sdk docker -y'
+    # Enter name of Project
+    echo -e "Enter the name space of the project: "
+    read name_of_space
+    if [ -z "$name_of_space" ]; then
+        echo -e "${RED}BASTARD ! Project name cannot be empty${NC}"
+        exit 1
+    fi
+    co1="huggingface-cli repo create ${name_of_space} --type=space --space_sdk docker -y"
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
 }
