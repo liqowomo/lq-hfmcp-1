@@ -66,7 +66,7 @@ hf_space_upload() {
     h1 "HF Space Upload"
     SPACE="gmptut1"
 
-    co1="huggingface-cli upload --repo-type=space ${SPACE} ."
+    co1="huggingface-cli upload --repo-type=space ${SPACE} --exclude .venv ."
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
 }
