@@ -65,15 +65,13 @@ hf_space() {
 hf_space_upload() {
     h1 "HF Space Upload"
     SPACE="gmptut1"
-    EXCLUDE=".venv"
 
     # Define the files to include
     INCLUDE_FILES="\"app.py\" \"requirements.txt\""
 
     co1="huggingface-cli upload \
     --repo-type=space ${SPACE} \
-    --include=${INCLUDE_FILES} . \
-    --exclude=\"${EXCLUDE}\""
+    --include=${INCLUDE_FILES}  "
 
     echo -e "--- Executing ${co1} ---"
     eval "$co1"
