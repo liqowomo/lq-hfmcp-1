@@ -11,7 +11,7 @@ hf_token = os.getenv("HF")
 
 
 # Main function that will call the sub functions
-def hf_repo_ops():
+def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
@@ -40,14 +40,14 @@ def hf_create_repo():
     """
 
     # Name of the repo
-    repo_name = "Liqo/MakefromPy2"
+    repo_name = "Liqo/SpaceFromPy"
 
     # Create the repository
     make_repo_model = create_repo(
         token=hf_token,
         repo_id=repo_name, 
         repo_type="space", 
-        
+        space_sdk="gradio",
     )
 
     header2(f"{repo_name}")
