@@ -1,5 +1,9 @@
+# Main entry point for all huggingface operations
+
+from src.hfrepo import hf_repo_ops
+
 def main():
-    print("Hello from hfu1!")
+    hf_repo_ops()
 
 
 if __name__ == "__main__":

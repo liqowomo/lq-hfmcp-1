@@ -2,6 +2,8 @@
 
 from src.utz import header1
 
-def hf_repo_ops() {
-    header1("Repo Operations")
-}
+def hf_repo_ops():
+    """
+    Main function for Hugging Face repository operations.
+    """
+    header1("BootySmell")
