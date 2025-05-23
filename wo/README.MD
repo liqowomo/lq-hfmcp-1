@@ -13,3 +13,4 @@
 | [`faa1`](./faa1/) | Testing [`Fast-Agent`](https://fast-agent.ai/mcp/state_transfer/#step-3-connect-and-chat-with-agent-one) - this one abandoned since it has to be run locally and asking for keys |
 | [`app1`](./app1/) |                                                                      Testing radio mcp server from tutorial                                                                      |
 | [`hfu1`](./hfu1/) |                                                                               HuggingFace Uploader                                                                               |
+|  [`me1`](./me1/)  |                                                                              Gradio Generael Tests                                                                               |
