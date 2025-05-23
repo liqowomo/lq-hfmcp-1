@@ -3,6 +3,7 @@
 import gradio as gr
 from textblob import TextBlob
 
+
 def sentiment_analysis(text: str) -> dict:
     """
     Analyze the sentiment of the given text.
@@ -15,12 +16,19 @@ def sentiment_analysis(text: str) -> dict:
     """
     blob = TextBlob(text)
     sentiment = blob.sentiment
-    
+
     return {
         "polarity": round(sentiment.polarity, 2),  # -1 (negative) to 1 (positive)
-        "subjectivity": round(sentiment.subjectivity, 2),  # 0 (objective) to 1 (subjective)
-        "assessment": "positive" if sentiment.polarity > 0 else "negative" if sentiment.polarity < 0 else "neutral"
+        "subjectivity": round(
+            sentiment.subjectivity, 2
+        ),  # 0 (objective) to 1 (subjective)
+        "assessment": "positive"
+        if sentiment.polarity > 0
+        else "negative"
+        if sentiment.polarity < 0
+        else "neutral",
     }
+
 
 # Create the Gradio interface
 demo = gr.Interface(
@@ -28,7 +36,7 @@ demo = gr.Interface(
     inputs=gr.Textbox(placeholder="Enter text to analyze..."),
     outputs=gr.JSON(),
     title="Text Sentiment Panty",
-    description="Analyze the pantysmell of text using TextBlob"
+    description="Analyze the pantysmell of text using TextBlob",
 )
 
 # Launch the interface and MCP server
