@@ -16,7 +16,7 @@ load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
 # Main Repo ID here
-REPO_ID = "Liqo/smpnor1"
+REPO_ID = "Liqo/mcpapp1"
 
 
 # Main function that will call the sub functions
@@ -24,9 +24,9 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    # hf_create_space()
-    # hf_upload_dirz()
-    hf_delete_spaces()
+    hf_create_space()
+    hf_upload_dirz()
+    # hf_delete_spaces()
 
 
 # --- Function for creating a repo ---
@@ -59,6 +59,7 @@ def hf_create_space():
     )
 
     header2(f"{REPO_ID}")
+    print(f"✅ Repo Created: {make_repo_model.repo_url}")
     return make_repo_model
 
 
@@ -92,7 +93,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = "../app1/"  # Path to your local folder
+    local_folder_path = ""  # Path to your local folder
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
     # Upload the folder
