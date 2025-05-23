@@ -15,6 +15,11 @@ from huggingface_hub import (
 load_dotenv("src/.env")
 hf_token = os.getenv("HF")
 
+# --- Chagne Repo Id here ---
+# Main Repo ID here
+REPO_ID = "Liqo/Sn2"
+
+
 
 # Main function that will call the sub functions
 def hf_repo_ops():
@@ -45,13 +50,12 @@ def hf_create_repo():
     - env_file (str): Path to the .env file containing secrets. Default is ".env".
     """
 
-    # Name of the repo
-    repo_name = "Liqo/MakefromPy2"
-
+    
     # Create the repository
-    make_repo_model = create_repo(repo_id=repo_name, repo_type="model", token=hf_token)
+    make_repo_model = create_repo(repo_id=REPO_ID, repo_type="model", token=hf_token)
 
-    header2(f"{repo_name}")
+    header2(f"{REPO_ID}")
+    print(f"✅ Created: {make_repo_model.repo_id}")
     return make_repo_model
 
 
@@ -86,14 +90,13 @@ def hf_upload_dirz():
 
     # Folder to upload
     local_folder_path = "TEMP/"  # Path to your local folder
-    repo_id = "Liqo/MakefromPy2"  # Your Hugging Face repo
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
     # Upload the folder
     upload_result = upload_folder(
         folder_path=local_folder_path,
         path_in_repo=path_in_repo,
-        repo_id=repo_id,
+        repo_id=REPO_ID,
         token=hf_token,
         repo_type="model",  # Change to "dataset" or "space" if needed
         commit_message="Smell Panty",
@@ -125,8 +128,8 @@ def hf_delete_repos():
     """
 
     # Config
-    repo_ids = ["Liqo/MakefromPy1", "Liqo/but1", "Liqo/buty1"]
-    repo_type = "model"
+    repo_ids = ["Liqo/smpnor1", "Liqo/gmptut1"]
+    repo_type = "space"
     token = hf_token
     missing_ok = True
 
