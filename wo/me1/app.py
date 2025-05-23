@@ -4,6 +4,7 @@ MAIN_TEXT = """
 # me1test1
 
 1. Testing out markdown in the tab
+2. Note this uses `gr.blocks`
 """
 
 # Use Blocks to make a non-interactive markdown display
