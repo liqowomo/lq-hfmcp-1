@@ -24,9 +24,9 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
+    hf_delete_spaces()
     hf_create_space()
     hf_upload_dirz()
-    # hf_delete_spaces()
 
 
 # --- Function for creating a repo ---
