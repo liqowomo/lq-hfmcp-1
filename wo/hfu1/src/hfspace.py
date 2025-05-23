@@ -24,7 +24,7 @@ def hf_space_ops():
     """
     Main function for Hugging Face repository operations.
     """
-    hf_create_space()
+    # hf_create_space()
     hf_upload_dirz()
     # hf_delete_spaces()
 
@@ -59,7 +59,7 @@ def hf_create_space():
     )
 
     header2(f"{REPO_ID}")
-    print(f"✅ Repo Created: {make_repo_model.repo_url}")
+    print(f"✅ Repo Created: {make_repo_model.repo_id}")
     return make_repo_model
 
 
@@ -93,7 +93,7 @@ def hf_upload_dirz():
     """
 
     # Folder to upload
-    local_folder_path = ""  # Path to your local folder
+    local_folder_path = "../app1"  # Path to your local folder
     path_in_repo = ""  # Upload to repo root (change to subdir like "folder/" if needed)
 
     # Upload the folder
@@ -141,7 +141,7 @@ def hf_delete_spaces():
 
     # Config
     repo_ids = [
-        "Liqo/smpy4",
+        "Liqo/mcpapp1",
     ]
     repo_type = "space"
     token = hf_token
